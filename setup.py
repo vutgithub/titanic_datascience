@@ -5,7 +5,7 @@ def readme():
     """Import the README.md Markdown file and try to convert it to RST format."""
     try:
         import pypandoc
-    packages=['titanic'],    packages=['titanic'],        return pypandoc.convert('README.md', 'rst')
+        return pypandoc.convert('README.md', 'rst')
     except(IOError, ImportError):
         with open('README.md') as readme_file:
             return readme_file.read()
@@ -23,7 +23,7 @@ setup(
     url='https://github.com/vutgithub/titanic_datascience',
     author='Thanh Vu',  # Substitute your name
     author_email='tvu@xebia.fr',  # Substitute your email
-    license='Publicis Sapient Engineering',
+    license='PSE',
     packages=['titanic'],
     install_requires=[
         'pypandoc>=1.4',
@@ -34,12 +34,12 @@ setup(
         'matplotlib>=3.0.3',
         'pytest>=4.3.1',
         'pytest-runner>=4.4',
-	'click>=7.0'
+        'click>=7.0'
     ],
     setup_requires=['pytest-runner'],
     tests_require=['pytest'],
     entry_points='''
-	[console_scripts]
-	titanic_analysis=titanic.command_line:titanic_analysis
+        [console_scripts]
+        titanic_analysis=titanic.command_line:titanic_analysis
     '''
 )
